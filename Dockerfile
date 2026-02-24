@@ -14,7 +14,7 @@ RUN javac GreetingApp.java
 EXPOSE 8080
 
 # Define environment variable
-ENV NAME World
+ENV NAME=World
 
 # Run the application when the container launches
 CMD ["java", "GreetingApp"]
