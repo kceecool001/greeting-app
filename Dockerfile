@@ -7,14 +7,11 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . .
 
-# Compile the Java code
-RUN javac GreetingApp.java
+# Build the Spring Boot application
+RUN ./mvnw clean package -DskipTests
 
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
 
-# Define environment variable
-ENV NAME=World
-
 # Run the application when the container launches
-CMD ["java", "GreetingApp"]
+CMD ["java", "-jar", "target/visitor-management-0.0.1-SNAPSHOT.jar"]
